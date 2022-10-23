@@ -2,7 +2,12 @@ import React, { useState, FC } from "react";
 import { Typography, Button } from "antd";
 import styles from "./company_logger.module.css";
 
-function CompanyLogger({ name }: { name: string }) {
+interface CompanyLoggerProps {
+  name: string;
+  setLogModalVisible: (visible: boolean) => void;
+}
+
+function CompanyLogger({ name, setLogModalVisible }: CompanyLoggerProps) {
   const [timer, setTimer] = useState<string>("00:00:00");
   const [timerStarted, setTimerStarted] = useState<boolean>(false);
   const [timerPaused, setTimerPaused] = useState<boolean>(false);
@@ -43,6 +48,10 @@ function CompanyLogger({ name }: { name: string }) {
       setTimerStarted(false);
       clearInterval(timerInterval);
     };
+
+    const showModal = () => {
+      setLogModalVisible(true);
+    };
     if (timerStarted) {
       return (
         <div>
@@ -75,14 +84,19 @@ function CompanyLogger({ name }: { name: string }) {
     }
     return (
       <div>
-        <Button
-          type="primary"
-          size="small"
-          className={styles.timerBtn}
-          onClick={handleStart}
-        >
-          Start
-        </Button>
+        <div className={styles.startAndLogs}>
+          <Button
+            type="primary"
+            size="small"
+            className={styles.timerBtn}
+            onClick={handleStart}
+          >
+            Start
+          </Button>
+          <Button size="small" className={styles.timerBtn} onClick={showModal}>
+            Check Logs
+          </Button>
+        </div>
         <div className={styles.logs}>
           {timer !== "00:00:00" && (
             <li>

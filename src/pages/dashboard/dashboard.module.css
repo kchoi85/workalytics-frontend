@@ -1,0 +1,28 @@
+.wrapper {
+  padding: 12px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.time {
+  font-size: 16px;
+}
+
+.divider {
+  margin: 12px -12px !important;
+  background-color: gray;
+}
+
+.body {
+  padding: 12px 0px;
+}
+
+.row {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+}

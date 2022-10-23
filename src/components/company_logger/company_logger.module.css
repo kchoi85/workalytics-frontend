@@ -1,0 +1,17 @@
+.timer {
+  margin-bottom: 8px;
+}
+.timerBtnWrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.timerBtn {
+  min-width: 70px;
+}
+
+.logs {
+  list-style-type: square;
+  margin-top: 12px;
+}

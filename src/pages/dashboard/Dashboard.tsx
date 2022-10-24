@@ -6,6 +6,8 @@ import styles from "./dashboard.module.css";
 import { format } from "date-fns";
 import CompanyLogger from "../../components/company_logger/CompanyLogger";
 
+import { useQuery, gql } from "@apollo/client";
+
 const COMPANY_NAME = "Company 1";
 
 function Home() {
